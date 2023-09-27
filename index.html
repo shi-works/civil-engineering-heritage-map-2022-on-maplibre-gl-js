@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>土木学会選奨土木遺産マップ</title>
+    <title>土木学会選奨土木遺産マップ2022</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://unpkg.com/maplibre-gl@3.1.0/dist/maplibre-gl.js'></script>
@@ -149,7 +149,7 @@
         // Attributionを折りたたみ表示
         map.addControl(new maplibregl.AttributionControl({
             compact: true,
-            customAttribution: '（<a href="https://twitter.com/shi__works" target="_blank">Twitter</a> | <a href="" target="_blank">Github</a>） '
+            customAttribution: '（<a href="https://twitter.com/shi__works" target="_blank">Twitter</a> | <a href="https://github.com/shi-works/civil-engineering-heritage-map-2022-on-maplibre-gl-js" target="_blank">Github</a>） '
         }));
 
         // 3D地形コントロール
@@ -324,7 +324,7 @@
             map.addSource("dobokuisan", {
                 type: "geojson",
                 data: "土木学会選奨土木遺産2022.geojson",
-                attribution: '<a href="https://note.com/htahathata/n/n2bd5e7877f93">はたはた@土木写真</a>'
+                attribution: '<a href="https://note.com/htahathata/n/n2bd5e7877f93">土木学会選奨土木遺産2022 はたはた@土木写真</a>'
             });
 
             // PNGソース追加
