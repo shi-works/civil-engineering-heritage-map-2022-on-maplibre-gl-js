@@ -475,9 +475,11 @@
             new maplibregl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(
-                    '<div style="border-bottom:1px solid #000; font-size: 1.2em; color: #FF00FF;"><strong>' + Name + '</strong></div>' +
+                    '<div style="border-bottom:1px solid #000; font-size: 1.2em;">' + '<strong><span>構造物名： </span></strong>' + '<strong><span style="color: #0000FF;">' + Name + '</span></strong></div>' +
                     // '<div style="border-bottom:1px solid #000;"><strong><span style="color: #0000FF;">エリア: </span></strong>' + Area + '</div>' +
-                    '<div style="border-bottom:1px solid #000;"><strong><span style="color: #0000FF;">説明: </span></strong>' + Setsumei + '</div>' +
+                    '<div style="border-bottom:1px solid #000;"><strong><span>緯度： </span></strong>' + lat + '</div>' +
+                    '<div style="border-bottom:1px solid #000;"><strong><span>経度： </span></strong>' + lng + '</div>' +
+                    '<div style="border-bottom:1px solid #000;"><strong><span>説明： </span></strong>' + Setsumei + '</div>' +
                     '<div><a href="https://www.google.com/maps?q=' + lat + ',' + lng + '&hl=ja" target="_blank">🌎Google Maps</a></div>' +
                     '<div><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' + lat + ',' + lng + '&hl=ja" target="_blank">📷Street View</a></div>'
                 )
