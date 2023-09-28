@@ -438,20 +438,32 @@
                 id: 'dobokuisan-label',
                 type: 'symbol',
                 'source': 'dobokuisan',
-                minzoom: 12,
+                minzoom: 10,
                 maxzoom: 23,
                 layout: {
                     // 'text-field': ['get', '構造物名'],
                     'text-field': ['get', 'Name'],
                     'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
                     'text-size': 12,
-                    'text-offset': [0, -2.5],
+                    'text-offset': [0, 2.5],
                     'text-allow-overlap': false,
                     'text-ignore-placement': false,
                     'text-max-width': 20  // テキストが折り返される前の最大幅を設定
                 },
                 paint: {
-                    'text-color': 'rgba(0, 0, 0, 1)',
+                    // 'text-color': 'rgba(0, 0, 0, 1)',
+                    "text-color": ["match",
+                        ["get", "layer"],
+                        "土木学会選奨土木遺産（公開） — 北海道", "rgba(127, 0, 255, 1)",
+                        "土木学会選奨土木遺産（公開） — 東北", "rgba(0, 0, 255, 1)",
+                        "土木学会選奨土木遺産（公開） — 関東＋甲越", "rgba(0, 152, 0, 1)",
+                        "土木学会選奨土木遺産（公開） — 中部", "rgba(255, 127, 0, 1)",
+                        "土木学会選奨土木遺産（公開） — 関西", "rgba(255, 0, 0, 1)",
+                        "土木学会選奨土木遺産（公開） — 中国", "rgba(203, 152, 0, 1)",
+                        "土木学会選奨土木遺産（公開） — 四国", "rgba(0, 127, 255, 1)",
+                        "土木学会選奨土木遺産（公開） — 九州・沖縄", "rgba(255, 0, 255, 1)",
+                        "rgba(0, 0, 0, 1)"
+                    ],
                     'text-halo-blur': 1,
                     'text-halo-color': 'rgba(255, 255, 255, 1)',
                     'text-halo-width': 2
@@ -475,7 +487,7 @@
             new maplibregl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(
-                    '<div style="border-bottom:1px solid #000; font-size: 1.2em;">' + '<strong><span>構造物名： </span></strong>' + '<strong><span style="color: #0000FF;">' + Name + '</span></strong></div>' +
+                    '<div style="border-bottom:1px solid #000; font-size: 1.2em;">' + '<strong><span>構造物名： </span></strong>' + '<strong><span style="color: #FF00FF;">' + Name + '</span></strong></div>' +
                     // '<div style="border-bottom:1px solid #000;"><strong><span style="color: #0000FF;">エリア: </span></strong>' + Area + '</div>' +
                     '<div style="border-bottom:1px solid #000;"><strong><span>緯度： </span></strong>' + lat + '</div>' +
                     '<div style="border-bottom:1px solid #000;"><strong><span>経度： </span></strong>' + lng + '</div>' +
