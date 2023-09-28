@@ -330,10 +330,74 @@
             });
 
             // imegeソース追加
+            map.loadImage('./img/purple-circle.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('purple-circle', image);
+                }
+            );
+
+            // imegeソース追加
+            map.loadImage('./img/blu-circle.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('blu-circle', image);
+                }
+            );
+
+            // imegeソース追加
             map.loadImage('./img/grn-circle.png',
                 function (error, image) {
                     if (error) throw error;
                     map.addImage('grn-circle', image);
+                }
+            );
+
+            // imegeソース追加
+            map.loadImage('./img/orange-circle.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('orange-circle', image);
+                }
+            );
+
+            // imegeソース追加
+            map.loadImage('./img/red-circle.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('red-circle', image);
+                }
+            );
+
+            // imegeソース追加
+            map.loadImage('./img/ylw-circle.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('ylw-circle', image);
+                }
+            );
+
+            // imegeソース追加
+            map.loadImage('./img/ltblu-circle.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('ltblu-circle', image);
+                }
+            );
+
+            // imegeソース追加
+            map.loadImage('./img/pink-circle.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('pink-circle', image);
+                }
+            );
+
+            // imegeソース追加
+            map.loadImage('./img/wht-circle.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('wht-circle', image);
                 }
             );
 
@@ -345,13 +409,25 @@
                 minzoom: 1,
                 maxzoom: 23,
                 "layout": {
-                    "icon-image": 'grn-circle',
+                    // "icon-image": 'grn-circle',
+                    "icon-image": ["match",
+                        ["get", "layer"],
+                        "土木学会選奨土木遺産（公開） — 北海道", "purple-circle",
+                        "土木学会選奨土木遺産（公開） — 東北", "blu-circle",
+                        "土木学会選奨土木遺産（公開） — 関東＋甲越", "grn-circle",
+                        "土木学会選奨土木遺産（公開） — 中部", "orange-circle",
+                        "土木学会選奨土木遺産（公開） — 関西", "red-circle",
+                        "土木学会選奨土木遺産（公開） — 中国", "ylw-circle",
+                        "土木学会選奨土木遺産（公開） — 四国", "ltblu-circle",
+                        "土木学会選奨土木遺産（公開） — 九州・沖縄", "pink-circle",
+                        "wht-circle"
+                    ],
                     "icon-size": [
                         'interpolate',
                         ['linear'],
                         ['zoom'],
                         1, 0.2,  // ズームレベル1でサイズは0.2
-                        12, 0.5  // ズームレベル12でサイズは0.5
+                        12, 0.6  // ズームレベル12でサイズは0.6
                     ],
                     "icon-allow-overlap": true // シンボルの重なりを許可
                 }
@@ -369,7 +445,7 @@
                     'text-field': ['get', 'Name'],
                     'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
                     'text-size': 12,
-                    'text-offset': [0, -2],
+                    'text-offset': [0, -2.5],
                     'text-allow-overlap': false,
                     'text-ignore-placement': false,
                     'text-max-width': 20  // テキストが折り返される前の最大幅を設定
