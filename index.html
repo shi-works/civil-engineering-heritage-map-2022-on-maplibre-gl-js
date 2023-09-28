@@ -323,11 +323,13 @@
             // 土木遺産ソース
             map.addSource("dobokuisan", {
                 type: "geojson",
-                data: "土木学会選奨土木遺産2022.geojson",
-                attribution: '<a href="https://note.com/htahathata/n/n2bd5e7877f93">土木学会選奨土木遺産2022 はたはた@土木写真</a>'
+                // data: "土木学会選奨土木遺産2022.geojson",
+                data: "土木学会選奨土木遺産（公開）.geojson",
+                // attribution: '<a href="https://note.com/htahathata/n/n2bd5e7877f93">土木学会選奨土木遺産2022 はたはた@土木写真</a>'
+                attribution: '<a href="https://www.google.com/maps/d/viewer?mid=1zhLua_qMEQoScCvIDE0Ws1LPa5iJjapC&usp=sharing">土木学会選奨土木遺産（公開） はたはた@土木写真</a>'
             });
 
-            // PNGソース追加
+            // imegeソース追加
             map.loadImage('./img/grn-circle.png',
                 function (error, image) {
                     if (error) throw error;
@@ -363,7 +365,8 @@
                 minzoom: 12,
                 maxzoom: 23,
                 layout: {
-                    'text-field': ['get', '構造物名'],
+                    // 'text-field': ['get', '構造物名'],
+                    'text-field': ['get', 'Name'],
                     'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
                     'text-size': 12,
                     'text-offset': [0, -2],
@@ -387,15 +390,17 @@
         map.on('click', 'dobokuisan-symbol', (e) => {
             var lng = e.features[0].geometry.coordinates[0];
             var lat = e.features[0].geometry.coordinates[1];
-            var Name = e.features[0].properties['構造物名'];
-            var Area = e.features[0].properties['エリア'];
-            var Setsumei = e.features[0].properties['説明'];
+            // var Name = e.features[0].properties['構造物名'];
+            var Name = e.features[0].properties['Name'];
+            // var Area = e.features[0].properties['エリア'];
+            // var Setsumei = e.features[0].properties['説明'];
+            var Setsumei = e.features[0].properties['description'];
 
             new maplibregl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(
                     '<div style="border-bottom:1px solid #000; font-size: 1.2em; color: #FF00FF;"><strong>' + Name + '</strong></div>' +
-                    '<div style="border-bottom:1px solid #000;"><strong><span style="color: #0000FF;">エリア: </span></strong>' + Area + '</div>' +
+                    // '<div style="border-bottom:1px solid #000;"><strong><span style="color: #0000FF;">エリア: </span></strong>' + Area + '</div>' +
                     '<div style="border-bottom:1px solid #000;"><strong><span style="color: #0000FF;">説明: </span></strong>' + Setsumei + '</div>' +
                     '<div><a href="https://www.google.com/maps?q=' + lat + ',' + lng + '&hl=ja" target="_blank">🌎Google Maps</a></div>' +
                     '<div><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' + lat + ',' + lng + '&hl=ja" target="_blank">📷Street View</a></div>'
